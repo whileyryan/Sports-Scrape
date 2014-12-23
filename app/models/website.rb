@@ -1,9 +1,11 @@
 class Website < ActiveRecord::Base
   require 'open-uri'
 
-  def self.get_websites(user_website)
+  def self.get_websites
+    p '='*100
+    p 'BOOM'
     websites = ['http://www.nfl.com/news', 'http://www.nba.com/news', 'http://espn.go.com/nfl', 'http://espn.go.com/nba']
-    keyword_array = [' out ', ' injur', ' start', ' concuss', ' bench', ' broke', ]
+    keyword_array = [' out ', ' injur', ' start', ' concuss', ' bench', ' broke' ]
     websites.each do |website|
     page = Nokogiri::HTML(open("#{website}"))   
     links = page.css('a')
@@ -23,7 +25,7 @@ class Website < ActiveRecord::Base
   end
 
   def self.get_user_websites(user_website)
-    keyword_array = [' out ', ' injur', ' start', ' concuss', ' bench', ' broke', ]
+    keyword_array = [' out ', ' injur', ' start', ' concuss', ' bench', ' broke' ]
     page = Nokogiri::HTML(open("#{user_website}"))   
     links = page.css('a')
     links.each do |link|
