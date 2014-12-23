@@ -1,0 +1,8 @@
+<form action='/website/show_web' role='form'>
+  <input type='text' name='website' paleholder='website'>
+  <input type='submit' value='submit'>
+</form>
+
+<% @websites.each do |website| %>
+  <a href='<%= website.href %>'><%= website.title %></a> | <%= website.updated_at %><br>
+<% end %>
