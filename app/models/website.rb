@@ -30,7 +30,7 @@ class Website < ActiveRecord::Base
       keyword_array.each do |key|
         if link.text.include? (key)
           if !link['href'].include? ('http')
-            href = website + link['href']
+            href = user_website + link['href']
           else
             href = link['href']
           end
